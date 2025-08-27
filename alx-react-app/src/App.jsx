@@ -18,4 +18,11 @@ function App() {
   );
 }
 
+  <div>
+      <Header />
+      <MainContent />
+      <Footer />
+    </div>
+
+
 export default App
