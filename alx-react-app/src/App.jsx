@@ -7,6 +7,8 @@ import React from 'react';
 import Header from './Header';
 import MainContent from './MainContent';
 import Footer from './Footer';
+import UserProfile from './components/UserProfile'; // Adjusted path
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,6 +25,8 @@ function App() {
       <MainContent />
       <Footer />
     </div>
+
+    
 
 
 export default App
