@@ -1,5 +1,6 @@
 // src/UserInfo.jsx
-import UserDetails from './UserDetails';
+import UserProfile from './UserProfile'; // still correct if UserProfile is in components
+
 
 function UserInfo() {
   return <UserDetails />;
