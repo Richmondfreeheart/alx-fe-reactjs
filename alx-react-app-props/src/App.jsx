@@ -3,6 +3,8 @@ import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import UserProfile from './components/UserProfile';
+import UserContext from './UserContext';
+import UserProfile from './components/UserProfile';
 
 function App() {
   return (
@@ -35,6 +37,14 @@ function App() {
         bio="Enjoys coding and traveling" 
       />
     </div>
+  );
+
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
+
+  return (
+    <UserContext.Provider value={userData}>
+      <UserProfile />
+    </UserContext.Provider>
   );
 
 export default App;
