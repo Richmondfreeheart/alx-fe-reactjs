@@ -5,7 +5,10 @@ import Footer from './components/Footer';
 import UserProfile from './components/UserProfile';
 import RecipeList from "./components/RecipeList";
 import AddRecipeForm from "./components/AddRecipeForm";
-
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import RecipeList from "./components/RecipeList";
+import AddRecipeForm from "./components/AddRecipeForm";
+import RecipeDetails from "./components/RecipeDetails";
 
 function App() {
   return (
@@ -47,5 +50,25 @@ function App() {
       <AddRecipeForm />
       <RecipeList />
     </div>
+  );
+
+   return (
+    <Router>
+      <nav style={{ padding: "10px", borderBottom: "1px solid #ccc" }}>
+        <Link to="/" style={{ marginRight: "10px" }}>Home</Link>
+        <Link to="/add">Add Recipe</Link>
+      </nav>
+
+      <Routes>
+        {/* Home page showing all recipes */}
+        <Route path="/" element={<RecipeList />} />
+
+        {/* Add recipe page */}
+        <Route path="/add" element={<AddRecipeForm />} />
+
+        {/* Dynamic route for recipe details */}
+        <Route path="/recipes/:id" element={<RecipeDetails />} />
+      </Routes>
+    </Router>
   );
 export default App;
