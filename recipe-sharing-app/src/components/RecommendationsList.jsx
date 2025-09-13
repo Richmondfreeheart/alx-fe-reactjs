@@ -1,4 +1,3 @@
-// src/RecommendationsList.jsx
 import { useRecipeStore } from './recipeStore';
 
 const RecommendationsList = () => {
@@ -10,9 +9,9 @@ const RecommendationsList = () => {
   return (
     <div>
       <h2>Recommended for You</h2>
-      <button onClick={generateRecommendations}>Refresh Recommendations</button>
+      <button onClick={generateRecommendations}>Get Recommendations</button>
       {recommendations.length === 0 ? (
-        <p>No recommendations yet. Add some favorites!</p>
+        <p>No recommendations yet.</p>
       ) : (
         recommendations.map((recipe) => (
           <div key={recipe.id}>
