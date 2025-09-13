@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useRecipeStore } from './recipeStore';
 
@@ -25,6 +24,13 @@ const EditRecipeForm = ({ recipe }) => {
         onChange={(e) => setDescription(e.target.value)}
       />
       <button type="submit">Save Changes</button>
+    </form>
+  );
+};
+
+export default EditRecipeForm;
+
+
     </form>
   );
 };
