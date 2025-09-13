@@ -1,33 +1,52 @@
+// src/recipeStore.js
 import { create } from 'zustand';
 
 export const useRecipeStore = create((set) => ({
   recipes: [],
-  searchTerm: '',
-  filteredRecipes: [],
+  favorites: [],
+  recommendations: [],
 
-  addRecipe: (newRecipe) =>
-    set((state) => ({ recipes: [...state.recipes, newRecipe] })),
-
-  updateRecipe: (updatedRecipe) =>
+  // Add recipe
+  addRecipe: (recipe) =>
     set((state) => ({
-      recipes: state.recipes.map((recipe) =>
-        recipe.id === updatedRecipe.id ? updatedRecipe : recipe
+      recipes: [...state.recipes, recipe],
+    })),
+
+  // Update recipe
+  updateRecipe: (id, updatedRecipe) =>
+    set((state) => ({
+      recipes: state.recipes.map((r) =>
+        r.id === id ? { ...r, ...updatedRecipe } : r
       ),
     })),
 
+  // Delete recipe
   deleteRecipe: (id) =>
     set((state) => ({
-      recipes: state.recipes.filter((recipe) => recipe.id !== id),
+      recipes: state.recipes.filter((r) => r.id !== id),
+      favorites: state.favorites.filter((fid) => fid !== id), // cleanup favorites too
     })),
 
-  setRecipes: (recipes) => set({ recipes }),
-
-  setSearchTerm: (term) => set({ searchTerm: term }),
-
-  filterRecipes: () =>
+  // Add to favorites
+  addFavorite: (id) =>
     set((state) => ({
-      filteredRecipes: state.recipes.filter((recipe) =>
-        recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
-      ),
+      favorites: state.favorites.includes(id)
+        ? state.favorites
+        : [...state.favorites, id],
     })),
+
+  // Remove from favorites
+  removeFavorite: (id) =>
+    set((state) => ({
+      favorites: state.favorites.filter((fid) => fid !== id),
+    })),
+
+  // Generate recommendations (mock logic)
+  generateRecommendations: () =>
+    set((state) => {
+      const recommended = state.recipes.filter(
+        (r) => state.favorites.includes(r.id) && Math.random() > 0.5
+      );
+      return { recommendations: recommended };
+    }),
 }));
