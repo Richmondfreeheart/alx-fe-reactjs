@@ -1,34 +1,23 @@
-// src/RecipeDetails.jsx
-import { useRecipeStore } from './recipeStore';
+import { create } from 'zustand';
 
-const RecipeDetails = ({ recipeId }) => {
-  const recipe = useRecipeStore((state) =>
-    state.recipes.find((r) => r.id === recipeId)
-  );
-  const favorites = useRecipeStore((state) => state.favorites);
-  const addFavorite = useRecipeStore((state) => state.addFavorite);
-  const removeFavorite = useRecipeStore((state) => state.removeFavorite);
+export const useRecipeStore = create((set) => ({
+  recipes: [],
 
-  if (!recipe) return <p>Recipe not found.</p>;
+  // Add a new recipe
+  addRecipe: (recipe) =>
+    set((state) => ({ recipes: [...state.recipes, recipe] })),
 
-  const isFavorite = favorites.includes(recipe.id);
+  // Update a recipe by id
+  updateRecipe: (id, updatedRecipe) =>
+    set((state) => ({
+      recipes: state.recipes.map((r) =>
+        r.id === id ? { ...r, ...updatedRecipe } : r
+      ),
+    })),
 
-  return (
-    <div>
-      <h1>{recipe.title}</h1>
-      <p>{recipe.description}</p>
-
-      {isFavorite ? (
-        <button onClick={() => removeFavorite(recipe.id)}>
-          Remove from Favorites
-        </button>
-      ) : (
-        <button onClick={() => addFavorite(recipe.id)}>
-          Add to Favorites
-        </button>
-      )}
-    </div>
-  );
-};
-
-export default RecipeDetails;
+  // Delete a recipe by id
+  deleteRecipe: (id) =>
+    set((state) => ({
+      recipes: state.recipes.filter((r) => r.id !== id),
+    })),
+}));
