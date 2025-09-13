@@ -1,8 +1,13 @@
-import WelcomeMessage from './components/WelcomeMessage';
+
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';import WelcomeMessage from './components/WelcomeMessage';
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import UserProfile from './components/UserProfile';
+
+import AddRecipeForm from './components/AddRecipeForm';
+import RecipeList from './components/RecipeList';
+import RecipeDetails from './components/RecipeDetails';
 
 function App() {
   return (
@@ -43,8 +48,6 @@ function App() {
 export default App;
   
 
-import AddRecipeForm from './components/AddRecipeForm';
-import RecipeList from './components/RecipeList';
 
 function App() {
   return (
