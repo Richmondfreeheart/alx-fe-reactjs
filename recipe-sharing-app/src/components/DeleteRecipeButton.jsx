@@ -7,14 +7,10 @@ const DeleteRecipeButton = ({ recipeId }) => {
 
   const handleDelete = () => {
     deleteRecipe(recipeId);
-    navigate('/'); // go back to home after deleting
+    navigate('/');
   };
 
-  return (
-    <button onClick={handleDelete} style={{ marginTop: '10px', color: 'red' }}>
-      Delete Recipe
-    </button>
-  );
+  return <button onClick={handleDelete}>Delete Recipe</button>;
 };
 
 export default DeleteRecipeButton;
