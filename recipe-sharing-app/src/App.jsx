@@ -3,6 +3,8 @@ import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import UserProfile from './components/UserProfile';
+import AddRecipeForm from './components/AddRecipeForm';
+import RecipeList from './components/RecipeList';
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
     </div>
   );
 
+  function App() {
     return (
     <div>
       <Header />
@@ -20,7 +23,8 @@ function App() {
     
   );
 }
-
+}
+function App() {
   return (
     <div>
       <UserProfile 
@@ -36,5 +40,18 @@ function App() {
       />
     </div>
   );
+}
 
 export default App;
+  
+
+function App() {
+  return (
+    <div style={{ padding: "20px" }}>
+      <h1>Recipe Sharing App</h1>
+      <AddRecipeForm />
+      <RecipeList />
+    </div>
+  );
+}
+
