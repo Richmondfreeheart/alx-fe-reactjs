@@ -15,22 +15,18 @@ const AddRecipeForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Recipe title"
-        required
+        placeholder="Title"
       />
-      <br />
       <textarea
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        placeholder="Recipe description"
-        required
+        placeholder="Description"
       />
-      <br />
       <button type="submit">Add Recipe</button>
     </form>
   );
