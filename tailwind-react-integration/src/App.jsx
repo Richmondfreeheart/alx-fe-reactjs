@@ -1,14 +1,12 @@
-import UserProfile from './components/UserProfile';
+import React from 'react';
+import UserProfile from './components/UserProfile';  // Correct import path
 
-export default function App() {
+function App() {
   return (
-    <div className="bg-blue-500 text-white p-8">
-      <h1 className="text-4xl font-bold">Hello, Tailwind!</h1>
+    <div className="App">
+      <UserProfile />  {/* Make sure this is here */}
     </div>
   );
 }
- return (
-    <div className="App">
-      <UserProfile />
-    </div>
-  );
+
+export default App;
