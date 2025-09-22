@@ -1,4 +1,5 @@
 function UserProfile() {
+  console.log('UserProfile rendered'); // Debugging line
   return (
     <div className="bg-gray-100 p-8 max-w-sm mx-auto my-20 rounded-lg shadow-lg">
       <img
@@ -13,5 +14,3 @@ function UserProfile() {
     </div>
   );
 }
-
-export default UserProfile;
