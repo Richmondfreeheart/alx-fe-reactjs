@@ -1,3 +1,5 @@
+import UserProfile from './components/UserProfile';
+
 export default function App() {
   return (
     <div className="bg-blue-500 text-white p-8">
@@ -5,3 +7,8 @@ export default function App() {
     </div>
   );
 }
+ return (
+    <div className="App">
+      <UserProfile />
+    </div>
+  );
