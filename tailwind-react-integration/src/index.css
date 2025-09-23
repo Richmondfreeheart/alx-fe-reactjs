@@ -2,6 +2,10 @@
 
 /* Import Tailwind via the plugin */
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 /* You can keep any app-specific styles under here */
 :root {
